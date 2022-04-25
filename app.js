@@ -56,6 +56,7 @@ function circleStyle() {
   });
 };
 
+
 setInterval(() => {
   circleStyle();
 }, 100);

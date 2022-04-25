@@ -45,7 +45,12 @@ h1 {
   background-size: cover;
   width: 75vw;
   height: 80vh;
+  transition: opacity 1s ease-in-out;
 }
+
+
+
+
 
 button {
   background: none;

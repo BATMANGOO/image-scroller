@@ -36,13 +36,15 @@ function fadeToNextImage() {
 }
 
 function autoSlideShow(imagesArr) {
+  // will fire only once at initial call for first image
+  fadeToNextImage();
   setInterval(() => {
     currentIndex += 1;
     if (currentIndex >= imagesArr.length) {
       currentIndex = 0;
     }
     imageContainer.style.backgroundImage = `url(${imagesArr[currentIndex]})`;
-    imageContainer.style.opacity = '1';
+    // will fire after each image
     fadeToNextImage();
   }, 5000);
 }

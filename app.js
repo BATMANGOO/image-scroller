@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 const imageContainer = document.querySelector('.img-container');
 const previousBtn = document.querySelector('.previous-btn');
 const nextBtn = document.querySelector('.next-btn');
@@ -7,8 +8,8 @@ const imagesArray = ['./images/1.jpg', './images/2.jpg', './images/3.jpg'];
 
 let currentIndex = 0;
 
-function slideShow(imagesArray) {
-  imageContainer.style.backgroundImage = `url(${imagesArray[currentIndex]})`;
+function slideShow(imagesArr) {
+  imageContainer.style.backgroundImage = `url(${imagesArr[currentIndex]})`;
 
   nextBtn.addEventListener('click', () => {
     currentIndex += 1;
@@ -25,43 +26,51 @@ function slideShow(imagesArray) {
     }
     imageContainer.style.backgroundImage = `url(${imagesArray[currentIndex]})`;
   });
-};
+}
 
-function autoSlideShow(imagesArray) {
+function fadeToNextImage() {
+  imageContainer.style.opacity = '1';
+  setTimeout(() => {
+    imageContainer.style.opacity = '0';
+  }, 4000);
+}
+
+function autoSlideShow(imagesArr) {
   setInterval(() => {
     currentIndex += 1;
-    if (currentIndex >= imagesArray.length) {
+    if (currentIndex >= imagesArr.length) {
       currentIndex = 0;
     }
-    imageContainer.style.backgroundImage = `url(${imagesArray[currentIndex]})`;
+    imageContainer.style.backgroundImage = `url(${imagesArr[currentIndex]})`;
+    imageContainer.style.opacity = '1';
+    fadeToNextImage();
   }, 5000);
-};
+}
 
-function circleButtonSelection(imagesArray) {
+function circleButtonSelection(imagesArr) {
   circleButtons.forEach((circleButton, index) => {
     circleButton.addEventListener('click', () => {
       currentIndex = index;
-      imageContainer.style.backgroundImage = `url(${imagesArray[currentIndex]})`;
+      imageContainer.style.backgroundImage = `url(${imagesArr[currentIndex]})`;
     });
   });
-};
+}
 
 function circleStyle() {
   circleButtons.forEach((circleButton, index) => {
+    const button = circleButton;
     if (index === currentIndex) {
-      circleButton.innerHTML = '&#9679';
+      button.innerHTML = '&#9679';
     } else {
-      circleButton.innerHTML = '&#9675';
+      button.innerHTML = '&#9675';
     }
   });
-};
-
+}
 
 setInterval(() => {
   circleStyle();
 }, 100);
 
-circleStyle();
 circleButtonSelection(imagesArray);
 slideShow(imagesArray);
 autoSlideShow(imagesArray);

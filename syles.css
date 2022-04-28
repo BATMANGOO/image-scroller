@@ -41,7 +41,7 @@ h1 {
 }
 
 .img-container {
-  background-image: url("./images/1.jpg");
+  background-image: url("./1.jpg");
   background-size: cover;
   width: 75vw;
   height: 80vh;

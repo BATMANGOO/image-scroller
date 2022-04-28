@@ -4,7 +4,7 @@ const previousBtn = document.querySelector('.previous-btn');
 const nextBtn = document.querySelector('.next-btn');
 const circleButtons = document.querySelectorAll('span');
 
-const imagesArray = ['./images/1.jpg', './images/2.jpg', './images/3.jpg'];
+const imagesArray = ['./1.jpg', './2.jpg', './3.jpg'];
 
 let currentIndex = 0;
 
